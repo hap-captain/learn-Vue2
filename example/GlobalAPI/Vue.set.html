@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>Vue.set全局操作</title>
+</head>
+<body>
+    <div id="app">
+    	<h4>Vue.set全局操作</h4>
+		<!-- <p>{{this.count}}</p> -->
+		<ul>
+			<li v-for="item in arr">{{item}}</li>
+		</ul>
+    </div>
+	<button type="button" onclick="changeArr()">changArr</button>
+	
+    <script type="text/javascript">
+		function changeArr(){
+			//APP.arr[1] = 'dd'; //改变下标的值后Vue没法检测到
+			//outData.arr[1] = 'dd'; //同上
+			Vue.set(APP.arr,1,'dd');
+		}
+		
+	
+		let outData={
+			arr:['aaa','bbb','ccc']
+		}
+        let APP=new Vue({
+            el:'#app',
+            data:outData,
+			methods:{
+				
+			},
+        });
+    </script>
+</body>
+</html>

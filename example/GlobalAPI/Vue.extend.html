@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>Vue.extend 扩展实例构造器</title>
+</head>
+<body>
+	<h4>Vue.extend 扩展author标签</h4>
+	<author></author>
+	
+	<p>一般不直接使用扩展标签，一般放在组件中使用</p>
+    <script type="text/javascript">
+    const authorExtend = Vue.extend({
+		template:"<p> <a :href='authorURL'>{{authorName}}</a> </p>",
+		data:function(){
+			return {
+				authorName:"thewho",
+				authorURL:"../../index.html"
+			}
+		}
+	});
+	
+	new authorExtend().$mount('author');
+    </script>
+</body>
+</html>

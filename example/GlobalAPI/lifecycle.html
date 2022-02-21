@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>Vue 的生命周期</title>
+</head>
+<body>
+    <div id="app">
+		<h4>Vue 的钩子函数 （打开控制台调试查看）</h4>
+		<div id="">
+			<p>{{count}}</p>
+			<button type="button" @click="add">ADD</button>
+		</div>
+    </div>
+	
+    <script type="text/javascript">
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				count:1,
+            },
+			methods:{
+				add()
+				{
+					this.count ++;
+				}
+			},
+			beforeCreate:function()
+			{	
+				setTimeout("console.log('1-beforeCreate 初始化之后')",1000);
+			},
+			created:function()
+			{
+				setTimeout("console.log('2-created 创建完成之后')",2000);
+			},
+			beforeMount:function()
+			{
+				setTimeout("console.log('3-beforeMount 挂载之前')",3000);
+			},
+			mounted:function()
+			{
+				setTimeout("console.log('4-mounted 挂载完成')",3000);
+			},
+			beforeUpdate:function()
+			{
+				setTimeout("console.log('5-beforeUpdate 数据更新前')",3000);
+			},
+			updated:function()
+			{
+				setTimeout("console.log('6-updated 数据更新之后')",4000);
+			}
+			
+        });
+    </script>
+</body>
+</html>
+</html>

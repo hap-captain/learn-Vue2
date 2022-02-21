@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-pre_v-cloak_v-once实例</title>
+		<script src="../../js/v2.6.10/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+			<div id="">
+			<h4>原始输出：</h4>
+			{{message}}
+			</div>
+			
+			<div v-pre>
+			<h4>v-pre：不做渲染原样输出</h4>
+				{{message}}
+			</div>
+			
+			<div v-cloak>
+				<h4>v-cloak:渲染完成后才显示</h4>
+				{{message}}
+			</div>
+			
+			<div v-once>
+				<h4>v-once:只进行一次渲染：</h4>
+				{{message}}
+				<p>
+				 <input type="text" v-model = "message" />
+				</p>
+			</div>
+		</div>
+		
+		<script>
+			const App = new Vue({
+				el:"#app",
+				data:{
+						message:'hello world',
+				},
+				computed:{
+					}
+			});
+		</script>
+	</body>
+</html>

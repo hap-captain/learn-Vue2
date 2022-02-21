@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-on 实例</title>
+		<script src="../../js/v2.6.10/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h4>v-on:绑定事件监听器</h4>
+			本场比赛得分：{{scores}}
+			<p>
+				<input type="number" v-on:keyup.enter="inputAdd" v-model="changeNumber"/>
+				<button type="button" v-on:click="addScore">加分+1</button>
+			</p>
+			<p>
+				<input type="number" v-on:keyup.enter="inputReduce" v-model="changeNumber"/>
+				<button type="button" @click="reduceScore">减分-1</button>
+			</p>
+		</div>
+		
+		<script>
+			const App = new Vue({
+				el:"#app",
+				data:{
+						scores:0,
+						changeNumber:0
+				},
+				methods:{
+					addScore()
+					{
+						this.scores ++;
+					},
+					reduceScore()
+					{
+						this.scores --;
+					},
+					inputAdd()
+					{
+						// 用v-model绑定的值默认为字符串，要转换为整形
+						this.scores += parseInt(this.changeNumber);
+					},
+					inputReduce()
+					{
+						this.scores -= parseInt(this.changeNumber);
+					}
+				},
+				computed:{
+					}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-model数据源绑定 实例</title>
+		<script src="../../js/v2.6.10/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>原始数据：{{message}}</p>
+			<p>
+				<h4>文本框数据双向绑定：</h4>
+				<p>v-model：<input type="text" v-model="message" /></p>
+				<p>v-model.lazy：<input type="text" v-model.lazy="message" />焦点离开文本框或按下enter再渲染</p>
+				<p>v-model.number：<input type="text" v-model.number="message" />起始输入如果是数字，后面只接受数字</p>
+				<p>v-model.trim：<input type="text" v-model.trim="message" />去掉前后空格</p>
+			</p>
+			<p>
+				<h4>文本域数据双向绑定：</h4>
+				<textarea rows="5" cols="30" v-model="message"></textarea>
+			</p>
+			<p>
+				<h4>多选框绑定一个值：</h4>
+				<input type="checkbox" id="isTrue" v-model="isTrue"/>
+				<label for="isTrue">{{isTrue}}</label>
+			</p>
+			<p>
+				<h4>多选框绑定一个数组：</h4>
+				<input type="checkbox" id="isTrue" value="hap-captain" v-model="name" />
+				<label for="isTrue">hap-captain</label>
+				<input type="checkbox" id="isTrue" value="thewho" v-model="name" />
+				<label for="isTrue">thewho</label>
+				<input type="checkbox" id="isTrue" value="maoxiao" v-model="name" />
+				<label for="isTrue">maoxiao</label>
+				<p>name:{{name}}</p>
+			</p>
+			<p>
+				<h4>单选框绑定数据</h4>
+				<input type="radio" id="one" value="男" v-model="sex" />
+				<label for="one">男</label>
+				<input type="radio" id="two" value="女" v-model="sex" />
+				<label for="two">女</label>
+				<p>你选择的性别是：{{sex}}</p>
+			</p>
+		</div>
+		
+		<script>
+			const App = new Vue({
+				el:"#app",
+				data:{
+						message:'hello world',
+						isTrue:true,
+						name:[],
+						sex:"男"
+				},
+				computed:{
+					}
+			});
+		</script>
+	</body>
+</html>
