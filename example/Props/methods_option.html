@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>methods option</title>
+</head>
+<body>
+    <div id="app">
+    	<h4>methods 事件实例</h4>
+		<p>{{num}}</p>
+		<p>
+			<input type="text" name="" id="" value="" v-model="addNum" />
+			<button type="button" @click="add(addNum)">add</button>
+			<p><button type="button" @click="reset()">reset</button></p>
+		</p>
+		<h4>组件方式</h4>
+		<p>
+			<btn @click.native="add(addNum)"></btn>
+		</p>
+    </div>
+	<h4>作用域之外方法</h4>
+	<p>
+		<button type="button" onclick="APP.add(APP.addNum);">外部ADD</button>
+	</p>
+	
+    <script type="text/javascript">
+		const btn = {
+			template:`<button>组件ADD</button>`,
+		}
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				message:"hello world",
+				num:0,
+				addNum:0,
+            },
+			methods:{
+				add(num){
+					this.num += parseInt(num);
+				},
+				reset()
+				{
+					this.num = 0;
+				}
+			},
+			components:{
+				'btn':btn,
+			}
+        });
+    </script>
+</body>
+</html>

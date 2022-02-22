@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>computed option</title>
+</head>
+<body>
+    <div id="app">
+		<h4>改变输出格式，不改变原数据</h4>
+    	<p>改变后的数据：{{newPrice}}</p>
+		<p>原始数据：{{price}}</p>
+		<p></p>
+		<p>
+			<ul>
+				<li v-for="item in reversNews">
+					<p>{{item.title}}</p> 
+					<p>-- {{item.date}}</p>
+				</li>
+			</ul>
+		</p>
+    </div>
+	
+    <script type="text/javascript">
+		let newList = [
+			{
+				title:'临夏市党政企考察团赴青海省海东市等地考察清洁能源供..',
+				date:'2021/3/1'
+			},
+			{
+				title:'明确了！广西新能源汽车有电费补贴了，每车4000元..',
+				date:'2021/3/4'
+			},
+			{
+				title:'三连板浙大网新：西南云计算智慧产业相关项目尚未投产',
+				date:'2021/4/5'
+			}
+		]
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				message:"hello world",
+				price:100,
+				newList:newList,
+            },
+			methods:{
+				
+			},
+			computed:{
+				newPrice()
+				{
+					return  '￥' + this.price + "元";
+				},
+				reversNews()
+				{
+					return this.newList.reverse();
+				}
+			}
+        });
+    </script>
+</body>
+</html>
