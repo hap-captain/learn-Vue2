@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>component-4</title>
+</head>
+<body>
+    <div id="app">
+		<h4>component 标签动态显示声明的组件</h4>
+		<component :is="who"></component>
+		<button type="button" @click="changComponent">ChangeComponent</button>
+    </div>
+	
+    <script type="text/javascript">
+		const componentA = {
+			template:`<div style="color:red;">I'm componentA.</div>`
+		}
+		const componentB = {
+			template:`<div style="color:green;">I'm componentB.</div>`
+		}
+		const componentC = {
+			template:`<div style="color:pink;">I'm componentC.</div>`
+		}
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				message:"hello world",
+				who:"componentA"
+            },
+			components:{
+				"componentA":componentA,
+				"componentB":componentB,
+				"componentC":componentC,
+			},
+			methods:{
+				changComponent(){
+					if(this.who == "componentA")
+					{
+						this.who = "componentB";
+					}
+					else if(this.who == "componentB")
+					{
+						this.who = "componentC";
+					}
+					else
+					{
+						this.who = "componentA";
+					}
+				}
+			}
+        });
+    </script>
+</body>
+</html>

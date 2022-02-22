@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>component-3</title>
+</head>
+<body>
+    <div id="app">
+    	<h4>thewho组件</h4>
+		<thewho></thewho>
+    </div>
+	<h5 style="color:orange;">
+		注意：子组件定义时要在父组件前面，且要在父组件中声明子组件，不然父组件无法找到子组件
+	</h5>
+	
+    <script type="text/javascript">
+		// 子组件
+		const city = {
+			template:`<div style="color:purple;">Guangdong from China</div>`
+		}
+		// 父组件
+		const thewho = {
+			template:`
+			<div>
+			<p style="color:red;">thewho from China</p>
+			<city></city>
+			</div>
+			`,
+			components:{
+				"city":city
+			}
+		}
+        const APP=new Vue({
+            el:'#app',
+			components:{
+				"thewho":thewho
+			}
+        });
+    </script>
+</body>
+</html>

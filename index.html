@@ -29,6 +29,14 @@
 					</a>
 				</li>
 			</ul>
+			<h2>构造器里的选项</h2>
+			<ul>
+				<li v-for="(item,index) in PropsUrlList">
+					<a :href='item.url'>
+						{{item.title}}
+					</a>
+				</li>
+			</ul>
 		</div>
 		
 		<script>
@@ -77,6 +85,32 @@
 							{
 								url:'example/GlobalAPI/lifecycle.html',
 								title:"Vue的生命周期"
+							},
+							{
+								url:'example/GlobalAPI/template.html',
+								title:"template 三种写法"
+							},
+							{
+								url:'example/GlobalAPI/component-1.html',
+								title:"component-1"
+							},
+							{
+								url:'example/GlobalAPI/component-2.html',
+								title:"component-2"
+							},
+							{
+								url:'example/GlobalAPI/component-3.html',
+								title:"component-3"
+							},
+							{
+								url:'example/GlobalAPI/component-4.html',
+								title:"component-4"
+							},
+						],
+						PropsUrlList:[
+							{
+								url:'example/Props/propsData_option.html',
+								title:"propsData option"
 							},
 						]
 				},

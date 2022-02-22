@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>component-2</title>
+</head>
+<body>
+    <div id="app">
+		<h4>局部component</h4>
+		<maoxiao :from-here="message" color="backAndwhite"></maoxiao>
+    </div>
+	<h5 style="color:orange">注意：Vue组件自定义属性名挂载只支持 如from-here 在props中应该改为 fromHere</h5>
+	
+    <script type="text/javascript">
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				message:"China"
+            },
+			components:{
+				"maoxiao":{
+					template:`
+					<div style="color:green;">maoxiao from {{fromHere}}, color is {{color}}.</div>
+					`,
+					props:['fromHere','color']
+				}
+			}
+        });
+    </script>
+</body>
+</html>

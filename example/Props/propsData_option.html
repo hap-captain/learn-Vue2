@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>propsData option</title>
+</head>
+<body>
+    <div id="app">
+    	<header></header>
+    </div>
+	
+    <script type="text/javascript">
+		const header_a = Vue.extend({
+			template:`<p>{{message}} -- {{a}}</p>`,
+			data:function(){
+				return {
+					message:"hello, I am header!"
+				}
+			},
+			props:['a']
+		});
+		
+		new header_a({propsData:{a:12}}).$mount('header');
+    </script>
+</body>
+</html>

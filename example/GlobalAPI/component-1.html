@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>component-1</title>
+</head>
+<body>
+    <div id="app">
+    	<h4>全局component</h4>
+		<thewho></thewho>
+		
+		<h4>局部component</h4>
+		<maoxiao></maoxiao>
+    </div>
+	
+    <script type="text/javascript">
+		Vue.component("thewho",{
+			template:`
+			<div style="color:red;">我是全局的thewho组件</div>
+			`
+		})
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				message:"hello world"
+            },
+			components:{
+				"maoxiao":{
+					template:`
+					<div style="color:green;">我是局部的maoxiao组件</div>
+					`
+				}
+			}
+        });
+    </script>
+</body>
+</html>
