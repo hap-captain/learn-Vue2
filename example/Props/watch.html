@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>watch option</title>
+</head>
+<body>
+    <div id="app">
+    	<h4>watch 监控</h4>
+		<p>温度：{{tem}} 度</p>
+		<p>穿衣建议：{{were}}</p>
+		<p>
+			<button type="button" @click="addTem">升高温度</button>
+			<button type="button" @click="reduceTem">降低温度</button>
+		</p>
+    </div>
+	
+    <script type="text/javascript">
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				message:"hello world",
+				tem:14,
+				clothes:[
+					'棉衣羽绒服','夹克长裙','T恤短袖'
+				],
+				were:'夹克长裙'
+            },
+			methods:{
+				addTem(){
+					this.tem += 5;
+				},
+				reduceTem(){
+					this.tem -= 5;
+				}
+			},
+			watch:{
+				tem(newTem, oldTem)
+				{
+					if(newTem <= -5){
+						this.were = this.clothes[0];
+					}
+					else if (newTem <= 14)
+					{
+						this.were = this.clothes[1];
+					}
+					else
+					{
+						this.were = this.clothes[2];
+					}
+					
+				}
+			}
+        });
+    </script>
+</body>
+</html>

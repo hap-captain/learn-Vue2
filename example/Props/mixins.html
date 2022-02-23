@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>mixins option</title>
+</head>
+<body>
+    <div id="app">
+		<h4>mixins 混入</h4>
+    	{{num}}
+		<p>
+			<button type="button" @click="add()">ADD</button>
+		</p>
+    </div>
+	
+    <script type="text/javascript">
+		let addConsole ={
+			updated:function(){
+				console.log('数据变化，变成了' ,this.num);
+			}
+		};
+		Vue.mixin({
+			updated() {
+				console.log("我是全局的updated，我先执行");
+			}
+		})
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				num:1,
+            },
+			methods:{
+				add()
+				{
+					this.num ++ ;
+				}
+			},
+			updated() {
+				console.log('我是原生的updated，我后执行')
+			},
+			mixins:[addConsole]
+        });
+    </script>
+</body>
+</html>

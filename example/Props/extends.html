@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>extends option</title>
+</head>
+<body>
+    <div id="app">
+    	<h4>extend option</h4>
+		<p>{{num}}</p>
+		<p>
+			<button type="button" @click="add">增加</button>
+		</p>
+    </div>
+	
+    <script type="text/javascript">
+		
+		let extendsObj = {
+			updated:function()
+			{
+				console.log("我是扩展的updated");
+			},
+			methods:{
+				add(){
+					console.log("我是扩展出来的方法")
+					this.num ++;
+				}
+			}
+		}
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				num:1,
+            },
+			methods:{
+				add()
+				{
+					console.log("我是原生的方法")
+					this.num ++;
+				}
+			},
+			updated() {
+				console.log("我是原生的updated");
+			},
+			extends:extendsObj
+        });
+    </script>
+</body>
+</html>
