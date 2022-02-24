@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>example03</title>
+</head>
+<body>
+    <div id="app">
+    	<h4>$on</h4>
+		<p>{{num}}</p>
+		<p><button type="button" @click="add">add</button></p>
+    </div>
+	<p>
+		<button type="button" onclick="reduce()">reduce</button>
+	</p>
+	
+    <script type="text/javascript">
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				num:1,
+            },
+			methods:{
+				add(){
+					this.num ++;
+				}
+			},
+        });
+		
+		APP.$on("reduce", function(){
+			console.log("这是执行了reduce()方法")
+			this.num --;
+		})
+		function reduce(){
+			APP.$emit('reduce');
+		}
+    </script>
+</body>
+</html>

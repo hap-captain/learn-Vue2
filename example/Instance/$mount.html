@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>example demo</title>
+</head>
+<body>
+    <div id="app">
+		<h4>$mount</h4>
+    	<p id="mount">{{message}}</p>
+		<h4>$destroy</h4>
+		<p><button type="button" onclick="destroy()">卸载</button></p>
+		<h4>$forceUpdate</h4>
+		<p><button type="button" onclick="reload()">刷新</button></p>
+		<h4>$nextTick</h4>
+		<p><button type="button" onclick="tick()">更改数据</button></p>
+    </div>
+	
+    <script type="text/javascript">
+		let thewho = Vue.extend({
+			template:`<p>{{message}}</p>`,
+			data:function(){
+				return {
+					message:'hello I am thewho'
+				}
+			},
+			mounted() {
+				console.log("muonted 被创建");
+			},
+			destroyed() {
+				console.log("destroyed 销毁之后")
+			},
+			updated() {
+				console.log("updated 更新之后")
+			}
+		})
+		let vm = new thewho().$mount("#mount");
+		
+		function destroy()
+		{
+			vm.$destroy();
+		}
+		function reload()
+		{
+			vm.$forceUpdate();
+		}
+		function tick()
+		{
+			vm.message="update message info";
+			vm.$nextTick(function(){
+				console.log("message 更新完成后我被调用了");
+			})
+		}
+    </script>
+</body>
+</html>
