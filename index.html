@@ -37,6 +37,14 @@
 					</a>
 				</li>
 			</ul>
+			<h2>Vue实例和内部组件</h2>
+			<ul>
+				<li v-for="(item,index) in InstanceUrlList">
+					<a :href='item.url'>
+						{{item.title}}
+					</a>
+				</li>
+			</ul>
 		</div>
 		
 		<script>
@@ -111,6 +119,40 @@
 							{
 								url:'example/Props/propsData_option.html',
 								title:"propsData option"
+							},
+							{
+								url:'example/Props/computed_option.html',
+								title:"computed option"
+							},
+							{
+								url:'example/Props/methods_option.html',
+								title:"methods option"
+							},
+							{
+								url:'example/Props/watch.html',
+								title:"watch option"
+							},
+							{
+								url:'example/Props/mixins.html',
+								title:"mixins option"
+							},
+							{
+								url:'example/Props/extends.html',
+								title:"extends option"
+							},
+						],
+						InstanceUrlList:[
+							{
+								url:'example/Instance/link_jquery.html',
+								title:"link jquery"
+							},
+							{
+								url:'example/Instance/$mount.html',
+								title:"$mount"
+							},
+							{
+								url:'example/Instance/example03.html',
+								title:"example03"
 							},
 						]
 				},

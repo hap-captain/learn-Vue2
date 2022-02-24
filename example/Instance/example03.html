@@ -15,7 +15,10 @@
 	<p>
 		<button type="button" onclick="reduce()">reduce</button>
 	</p>
-	
+	<h4>$once</h4>
+	<p><button type="button" onclick="reduceOnce()">reduceOnce</button></p>
+	<h4>$off</h4>
+	<p><button type="button" onclick="reduceOff()">reduceOff</button></p>
     <script type="text/javascript">
         const APP=new Vue({
             el:'#app',
@@ -33,8 +36,20 @@
 			console.log("这是执行了reduce()方法")
 			this.num --;
 		})
+		
+		APP.$once("reduceOnce", function(){
+			console.log("这是执行了reduce()方法")
+			this.num --;
+		})
 		function reduce(){
 			APP.$emit('reduce');
+		}
+		function reduceOnce(){
+			APP.$emit('reduceOnce');
+		}
+		//关闭事件
+		function reduceOff(){
+			APP.$off("reduce")
 		}
     </script>
 </body>
