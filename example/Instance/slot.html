@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/v2.6.10/vue.min.js"></script>
+    <title>slot content extend demo</title>
+</head>
+<body>
+    <div id="app">
+		<h4>slot content extend demo</h4>
+    	<thewho>
+			<span slot="bolgUrl">{{thewhoData.bolgUrl}}</span>
+			<span slot="netName">{{thewhoData.netName}}</span>
+			<span slot="skill">{{thewhoData.skill}}</span>
+		</thewho>
+    </div>
+	
+	<template id="tem">
+		<div id="">
+			<p>博客地址：<slot name="bolgUrl"></slot></p>
+			<p>网名：<slot name="netName"></slot></p>
+			<p>技术类型：<slot name="skill"></slot></p>
+		</div>
+	</template>
+	
+    <script type="text/javascript">
+		let thewho = {
+			template:"#tem"
+		}
+        const APP=new Vue({
+            el:'#app',
+            data:{
+				thewhoData:{
+					bolgUrl:"../../index.html",
+					netName:"thewho",
+					skill:"web前端"
+				}
+            },
+			methods:{
+				
+			},
+			components:{
+				"thewho":thewho
+			}
+        });
+    </script>
+</body>
+</html>
